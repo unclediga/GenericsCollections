@@ -20,5 +20,7 @@ public class PriorityQueueTest {
     priorityQueue.add(new PriorityTask(paulPhone, Priority.HIGH));
 
     PriorityTask nextTask = priorityQueue.poll();
+    System.out.println(nextTask);
+    System.out.println(priorityQueue);
   }
 }
