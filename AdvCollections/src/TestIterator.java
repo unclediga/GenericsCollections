@@ -1,13 +1,23 @@
-import java.util.ConcurrentModificationException;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.*;
 
 public class TestIterator {
+
+    private static LinkedList<Integer> list;
+
     public static void main(String[] args) {
 
-        LinkedList<Integer> list = new LinkedList<Integer>();
+        List<Integer> list = new LinkedList<Integer>();
+        List<Integer> listSyn = Collections.synchronizedList(new LinkedList<Integer>());
+
+        System.out.println("**** NO SYN *********");
+        testList(list);
+        System.out.println("**** SYN *********");
+        testList(listSyn);
+    }
+
+    private static void testList(List<Integer> list) {
         for (int i = 1; i < 11; i++) list.add(i);
-        System.out.println("List size = " + list.size());
+        System.out.println("List.size()=" + list.size());
         Iterator iterator = list.iterator();
         while (iterator.hasNext()) {
             try {
@@ -16,8 +26,8 @@ public class TestIterator {
                 System.out.println("Error concurrent modif");
                 break;
             }
-            iterator.remove();
+            list.add(22);
         }
-        System.out.println(list);
+        System.out.println("LIST="+list);
     }
 }
