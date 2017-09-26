@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public class Holidays1 {
+public class Holidays_v1 {
 
     private static BufferedReader reader;
     private static String paramDay = "2013/01/01";
