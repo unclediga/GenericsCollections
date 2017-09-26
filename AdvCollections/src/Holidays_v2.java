@@ -45,6 +45,12 @@ public class Holidays_v2 {
 
             showShedule(firstDate, secondDate, endDate);
 
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             showCollections();
 
 
