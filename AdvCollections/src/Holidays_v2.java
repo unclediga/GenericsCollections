@@ -47,6 +47,11 @@ public class Holidays_v2 {
 
             showCollections();
 
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             holidays.clear();
 
