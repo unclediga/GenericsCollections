@@ -1,9 +1,11 @@
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Account {
     private String id;
     private int balance;
+    private AtomicInteger successTrans = new AtomicInteger(0);
 
     public Lock getLock() {
         return lock;
@@ -39,5 +41,13 @@ public class Account {
             return;
         }
         balance -= sum;
+    }
+
+    public void increaseSuccessTransfers() {
+        successTrans.incrementAndGet();
+    }
+
+    public int getSucessTransfers() {
+        return successTrans.get();
     }
 }

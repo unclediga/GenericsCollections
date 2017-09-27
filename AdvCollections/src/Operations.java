@@ -25,6 +25,8 @@ public class Operations {
 
     public static void transferLock(Account accD, Account accK, int sum) {
 
+
+        // Deadlock avoid
         Account acc1 = null;
         Account acc2 = null;
         if (accD.getId().compareTo(accK.getId()) == -1){
